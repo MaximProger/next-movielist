@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Head from "next/head"
+import Link from "next/link"
 
 const MovieDetail = ({movie}) => {
   console.log(movie);
@@ -9,81 +10,85 @@ const MovieDetail = ({movie}) => {
       <title>{movie.Title}</title>
       <meta name="description" content={movie.Plot} />
     </Head>
-    <Image src={movie.Poster} width={200} height={200} alt={movie.Title} />
+    <Link href="/" className="mb-5 inline-block text-white bg-transparent border border-amber-500 hover:bg-amber-600 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-7 py-2 text-center mt-auto transition-colors ease-linear delay-20">
+      Back
+    </Link>
     <div className="text-white">
-    <h1>{movie.Title}</h1>
-    
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <h1 className="text-3xl font-medium mb-10">{movie.Title}</h1>
+
+      <Image className="mx-auto w-[300px] h-[428] object-contain mb-10" src={movie.Poster} width={300} height={428} alt={movie.Title} />
+      
+      <div className="border border-zinc-700  relative overflow-x-auto shadow-md sm:rounded-lg mb-10">
+        <table className="w-full text-sm text-left text-white">
             <tbody>
-                <tr className="border-b border-gray-700">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white bg-gray-800">
+                <tr className="border-b border-zinc-700">
+                    <th scope="row" className="border-r border-zinc-700 px-6 py-4 font-medium whitespace-nowrap text-white bg-zinc-800">
                       Type
                     </th>
-                    <td className="px-6 py-4 capitalize">
+                    <td className="px-6 py-4 bg-zinc-800 capitalize">
                       {movie.Type}
                     </td>
                 </tr>
-                <tr className="border-b border-gray-700">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white bg-gray-800">
+                <tr className="border-b border-zinc-700">
+                    <th scope="row" className="border-r border-zinc-700 px-6 py-4 font-medium whitespace-nowrap text-white">
                       Year
                     </th>
                     <td className="px-6 py-4">
                       {movie.Year}
                     </td>
                 </tr>
-                <tr className="border-b border-gray-700">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white bg-gray-800">
+                <tr className="border-b border-zinc-700">
+                    <th scope="row" className="border-r border-zinc-700 px-6 py-4 font-medium whitespace-nowrap text-white bg-zinc-800">
                       Rated
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 bg-zinc-800">
                       {movie.Rated}
                     </td>
                 </tr>
-                <tr className="border-b border-gray-700">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white bg-gray-800">
+                <tr className="border-b border-zinc-700">
+                    <th scope="row" className="border-r border-zinc-700 px-6 py-4 font-medium whitespace-nowrap text-white">
                       Released
                     </th>
                     <td className="px-6 py-4">
                       {movie.Released}
                     </td>
                 </tr>
-                <tr className="border-b border-gray-700">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white bg-gray-800">
+                <tr className="border-b border-zinc-700">
+                    <th scope="row" className="border-r border-zinc-700 px-6 py-4 font-medium whitespace-nowrap text-white bg-zinc-800">
                       Runtime
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 bg-zinc-800">
                       {movie.Runtime}
                     </td>
                 </tr>
-                <tr className="border-b border-gray-700">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white bg-gray-800">
+                <tr className="border-b border-zinc-700">
+                    <th scope="row" className="border-r border-zinc-700 px-6 py-4 font-medium whitespace-nowrap text-white">
                       Genre
                     </th>
                     <td className="px-6 py-4">
                       {movie.Genre}
                     </td>
                 </tr>
-                <tr className="border-b border-gray-700">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white bg-gray-800">
+                <tr className="border-b border-zinc-700">
+                    <th scope="row" className="border-r border-zinc-700 px-6 py-4 font-medium whitespace-nowrap text-white bg-zinc-800">
                       Language
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 bg-zinc-800">
                       {movie.Language}
                     </td>
                 </tr>
-                <tr className="border-b border-gray-700">
-                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-white bg-gray-800">
+                <tr>
+                    <th scope="row" className="border-r border-zinc-700 px-6 py-4 font-medium whitespace-nowrap text-white ">
                       Country
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 ">
                       {movie.Country}
                     </td>
                 </tr>
             </tbody>
         </table>
       </div>
-      <p>{movie.Plot}</p>
+      <p className="text-lg">{movie.Plot}</p>
     </div>
     
     </>
