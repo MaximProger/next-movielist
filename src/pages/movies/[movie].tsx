@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
+import { IMovieCard, IMovieDetail, IParams } from "@/models/models";
 
-const MovieDetail = ({ movie }) => {
+const MovieDetail = ({ movie }: { movie: IMovieDetail }) => {
   return (
     <>
       <Head>
@@ -117,7 +118,8 @@ export async function getStaticPaths() {
     `http://www.omdbapi.com/?s=naruto&apikey=${process.env.APP_KEY}`
   );
   const data = await res.json();
-  const paths = data.Search.map((movie) => ({
+  const movies = data.Search;
+  const paths = movies.map((movie: IMovieCard) => ({
     params: { movie: movie.imdbID },
   }));
 
@@ -127,7 +129,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: IParams }) {
   const propMovie = params.movie;
   const res = await fetch(
     `http://www.omdbapi.com/?i=${propMovie}&apikey=${process.env.APP_KEY}`
